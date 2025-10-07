@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    width: 95%;
+    max-width: 620px;
+    margin: auto;
+}
+
+#faq-container {
+    counter-reset: question 1 footnote 1;
+}
+
+.question {
+    font-weight: bold;
+}
+.question::before{
+    content: "Q" counter(question) ": ";
+}
+
+.answer::before{
+    content: "A" counter(question) ": ";
+    font-weight: bold;
+}
+.answer {
+    margin-bottom: 1em;
+}
+.answer::after{
+    content: '';
+    counter-increment: question;
+}
+
+.footnote::before {
+    content: counter(footnote);
+}
+.footnote::after {
+    content: '';
+    counter-increment: footnote;
+}
+
+.pseudo-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#notes {
+    margin-top: 2em;
+    border-top: 1px solid #ccc;
+    padding-top: 1em;
+    margin-bottom: 5em;
+}
